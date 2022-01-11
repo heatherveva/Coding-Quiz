@@ -5,11 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Coding Quiz Challenge</title>
 </head>
 
 <body>
+    <section class="container my-5">
+        <h1 class="d-flex justify-content-center">Coding Quiz Challenge</h1>
 
+        <h2 class="justify-content-center" id="timer"> Countdown Timer: </h2>
+        <button class="btn btn-outline-success d-flex justify-content-center" id="start">Start Quiz</button>
+        <div id="main"></div>
+        <!-- Questions and Answers -->
+        <h2 id="question"></h2>
+        <div id="answers"></div>
+        <script src="./js/script.js"></script>
+    </section>
 </body>
 
 </html>
