@@ -5,7 +5,7 @@ const timerElement = document.getElementById("timer");
 const answersDiv = document.getElementById("answers");
 const saveButton = "button-addon2";
 let scoreDiv = document.getElementById("score");
-let scoreAndInitialsDiv = document.getElementById("scoreinitials");
+let initialsDiv = document.getElementById("initials");
 const questions = [
   {
     title: "What foundational coding type produces the result true or false?",
@@ -77,6 +77,8 @@ function answerClick() {
 }
 function endGame() {
   isWin = true;
+  localStorage.setItem("score", timerCount);
+  saveScore();
 }
 
 function startTimer() {
@@ -109,18 +111,25 @@ function saveScore() {
   scoreDiv.textContent = "Your Score:" + " " + timerCount;
 }
 
-let initials = localStorage.getItem("initials");
-let score = localStorage.getItem("score");
+let initials = localStorage.setItem("initials", initialsDiv);
+let score = localStorage.setItem("score", timerCount);
 
 initials = document.querySelector("#initials").value;
 score = document.querySelector("#score").value;
 
-localStorage.setItem("initials", "score", scoreAndInitialsDiv);
-saveScore();
-
 function displayScore() {
-  scoreAndInitialsDiv.textContent = "initials" + "score";
+  initialsDiv.textContent = "initials";
+  scoreDiv.textContent = "score";
+
+  saveButton.addEventListener("click", displayScore);
+
+  localStorage.getItem("initials");
+  localStorage.getItem("score");
+  saveScore();
 }
+
+//Upon clicking the save button on the initials, initials and score should populate to the corresponding boxes.
+
 // End quiz
 // Save high score
 // Initialization- start
