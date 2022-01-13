@@ -3,6 +3,9 @@ const startBtn = document.getElementById("start");
 const questionDiv = document.getElementById("question");
 const timerElement = document.getElementById("timer");
 const answersDiv = document.getElementById("answers");
+const saveButton = "button-addon2";
+let scoreDiv = document.getElementById("score");
+let scoreAndInitialsDiv = document.getElementById("scoreinitials");
 const questions = [
   {
     title: "What foundational coding type produces the result true or false?",
@@ -13,6 +16,22 @@ const questions = [
     title: "What data type will always be contained within quotation marks?",
     answers: ["Number", "String", "Boolean"],
     correct: "String",
+  },
+  {
+    title: "What does let introduce in coding?",
+    answers: ["Variable", "Function", "Argument"],
+    correct: "Variable",
+  },
+  {
+    title: "How do you contain an array?",
+    answers: ["Parentheses", "Brackets", "Curly Braces"],
+    correct: "Brackets",
+  },
+  {
+    title:
+      "What coding language provides the meaning and structure of most web content?",
+    answers: ["Javascript", "CSS", "HTML"],
+    correct: "HTML",
   },
 ];
 
@@ -52,9 +71,10 @@ function answerClick() {
     } else {
       endGame();
     }
-  } else alert("You got the wrong answer.");
+  } else {
+    timerCount = timerCount - 5;
+  }
 }
-
 function endGame() {
   isWin = true;
 }
@@ -69,20 +89,38 @@ function startTimer() {
       // Tests if win condition is met
       if (isWin && timerCount > 0) {
         // Clears interval and stops timer
-        alert(timerCount);
         clearInterval(timer);
+        alert(timerCount);
+        saveScore();
       }
     }
     // Tests if time has run out
-    if (timerCount === 0) {
+    if (timerCount < 0) {
       // Clears interval
       clearInterval(timer);
       //loseGame();
       alert("YOU LOST. ☹️");
+      saveScore();
     }
   }, 1000);
 }
 
+function saveScore() {
+  scoreDiv.textContent = "Your Score:" + " " + timerCount;
+}
+
+let initials = localStorage.getItem("initials");
+let score = localStorage.getItem("score");
+
+initials = document.querySelector("#initials").value;
+score = document.querySelector("#score").value;
+
+localStorage.setItem("initials", "score", scoreAndInitialsDiv);
+saveScore();
+
+function displayScore() {
+  scoreAndInitialsDiv.textContent = "initials" + "score";
+}
 // End quiz
 // Save high score
 // Initialization- start

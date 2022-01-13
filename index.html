@@ -14,12 +14,19 @@
     <section class="container my-5">
         <h1 class="d-flex justify-content-center">Coding Quiz Challenge</h1>
 
-        <h2 class="justify-content-center" id="timer"> Countdown Timer: </h2>
+        <h2 class="justify-content-center" id="timer"> Countdown Timer </h2>
         <button class="btn btn-outline-success d-flex justify-content-center" id="start">Start Quiz</button>
         <div id="main"></div>
         <!-- Questions and Answers -->
         <h2 id="question"></h2>
         <div id="answers"></div>
+        <div class="scorefont" id="score"></div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Enter your initials here"
+                aria-label="Enter your initials here" aria-describedby="button-addon2" id="initials">
+            <button class="btn btn-outline-success" type="button" id="button-addon2">Save</button>
+        </div>
+        <div id="scoreinitials"></div>
         <script src="./js/script.js"></script>
     </section>
 </body>
