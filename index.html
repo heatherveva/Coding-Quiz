@@ -19,17 +19,14 @@
         <div id="main"></div>
         <!-- Questions and Answers -->
         <h2 id="question"></h2>
-        <div id="answers"></div>
+        <div id="answers" class="answerbtn"></div>
         <div class="scorefont" id="score"></div>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Enter your initials here"
-                aria-label="Enter your initials here" aria-describedby="button-addon2" id="initials">
-            <button class="btn btn-outline-success" type="button" id="button-addon2">Save</button>
-        </div>
-        <div class="input-group">
-            <span class="input-group-text">Initials and Score</span>
-            <input type="initials" aria-label="Initials" class="form-control">
-            <input type="score" aria-label="Score" class="form-control">
+
+
+        <div class="col-12 col-md-8">
+            <h2 class="subtitle">High Scores:<span id="repo-search-term"></span></h2>
+            <!-- empty div to place initials and score -->
+            <div class="highscores" id="highscore"></div>
         </div>
         <script src="./js/script.js"></script>
     </section>

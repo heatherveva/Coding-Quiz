@@ -3,9 +3,8 @@ const startBtn = document.getElementById("start");
 const questionDiv = document.getElementById("question");
 const timerElement = document.getElementById("timer");
 const answersDiv = document.getElementById("answers");
-const saveButton = "button-addon2";
 let scoreDiv = document.getElementById("score");
-let initialsDiv = document.getElementById("initials");
+let highScoreDiv = document.getElementById("highscore");
 const questions = [
   {
     title: "What foundational coding type produces the result true or false?",
@@ -78,7 +77,7 @@ function answerClick() {
 function endGame() {
   isWin = true;
   localStorage.setItem("score", timerCount);
-  saveScore();
+  setsHighScore();
 }
 
 function startTimer() {
@@ -93,7 +92,6 @@ function startTimer() {
         // Clears interval and stops timer
         clearInterval(timer);
         alert(timerCount);
-        saveScore();
       }
     }
     // Tests if time has run out
@@ -102,30 +100,27 @@ function startTimer() {
       clearInterval(timer);
       //loseGame();
       alert("YOU LOST. ☹️");
-      saveScore();
     }
   }, 1000);
 }
 
-function saveScore() {
-  scoreDiv.textContent = "Your Score:" + " " + timerCount;
-}
+function setsHighScore() {
+  const highScores =
+    JSON.parse(window.localStorage.getItem("highScores")) || [];
+  if (isWin === true) {
+    const initials = prompt("Enter your initials.");
+    const userScore = timerCount;
 
-let initials = localStorage.setItem("initials", initialsDiv);
-let score = localStorage.setItem("score", timerCount);
-
-initials = document.querySelector("#initials").value;
-score = document.querySelector("#score").value;
-
-function displayScore() {
-  initialsDiv.textContent = "initials";
-  scoreDiv.textContent = "score";
-
-  saveButton.addEventListener("click", displayScore);
-
-  localStorage.getItem("initials");
-  localStorage.getItem("score");
-  saveScore();
+    const theScore = {
+      initials: initials,
+      score: userScore,
+    };
+    highScores.push(theScore);
+    window.localStorage.setItem("highScores", JSON.stringify(highScores));
+  }
+  highScores.forEach((score) => {
+    highScoreDiv.innerHTML += `${score.initials}: ${score.score}<br>`;
+  });
 }
 
 //Upon clicking the save button on the initials, initials and score should populate to the corresponding boxes.
@@ -134,3 +129,4 @@ function displayScore() {
 // Save high score
 // Initialization- start
 startBtn.addEventListener("click", startTimer);
+setsHighScore();

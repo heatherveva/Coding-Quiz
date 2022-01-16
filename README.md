@@ -10,7 +10,7 @@ Upon answering the five questions correctly, the user receives a score. They can
 
 ## Screenshot
 
-![This is an image of the deployed coding quiz as it appears when the user first clicks on the link.](./assets.codingquiz.png)
+![This is an image of the deployed coding quiz as it appears when the user first clicks on the link.](assets/codingquiz.png)
 
 ## Links to Application
 
