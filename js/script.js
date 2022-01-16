@@ -76,7 +76,7 @@ function answerClick() {
 }
 function endGame() {
   isWin = true;
-  localStorage.setItem("score", timerCount);
+  //localStorage.setItem("score", timerCount);
   setsHighScore();
 }
 
@@ -129,4 +129,3 @@ function setsHighScore() {
 // Save high score
 // Initialization- start
 startBtn.addEventListener("click", startTimer);
-setsHighScore();
