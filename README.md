@@ -1,5 +1,7 @@
 # Homework 4 Coding Quiz Challenge
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Description
 
 This code quiz was built using HTML, CSS, Javascript, and Bootstrap.
